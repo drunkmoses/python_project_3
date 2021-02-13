@@ -38,9 +38,11 @@ def select_db(user_id):
     cursor = conn.cursor()
     select_query = "SELECT * FROM Z5Ujjt1fJM.users WHERE user_id = %s;"
     cursor.execute(select_query, user_id)
-    for item in cursor:
-        print(item[1])
+    row = None
+    if cursor.rowcount > 0:
+        for item in cursor:
+            row = item[1]
 
     cursor.close()
     conn.close()
-    return item[1]
+    return row

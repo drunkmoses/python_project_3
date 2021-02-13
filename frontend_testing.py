@@ -1,13 +1,17 @@
 from selenium import webdriver
 
-def webd():
+def webd(): # define function to shorten code
     return webdriver.Firefox(executable_path=f"D:\Stuff\Python\geckodriver.exe")
 
 fe_test = webd()
-fe_test.get("http://127.0.0.1:5001/users/get_user_data/3")
+fe_test.get("http://127.0.0.1:5001/users/get_user_data/1444")
 try:
-    id_action = fe_test.find_element_by_id("user")
-except:
-    raise Exception("test failed")
+    id_action = fe_test.find_elements_by_id('a')
+    if not id_action:
+        raise Exception("test failed")
+    else:
+        for element in id_action:
+            print(element.text)
 finally:
     fe_test.close()
+
