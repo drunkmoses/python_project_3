@@ -6,7 +6,8 @@ pipeline {
                 script {
                     properties([pipelineTriggers([pollSCM('* * * * *')])])
                 }
-                git 'https://github.com/drunkmoses/python_project_1.git'
+                sh pwd
+                sh 'git clone https://github.com/drunkmoses/python_project_1.git'
             }
         }
     }
