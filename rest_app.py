@@ -1,6 +1,8 @@
 from flask import Flask, request
 import db_connector
 import pymysql
+import os
+import signal
 
 app = Flask(__name__)
 
@@ -48,7 +50,11 @@ def user(user_id):
             return {'user_id': user_id, 'user_deleted': user_id}, 200 # status code
         else:
             return {'status': 'error', 'reason': 'no such id'}, 500 # error status code
-
+        
+@app.route('/stop_server')
+def stop_server():
+   os.kill(os.getpid(), signal.CTRL_C_EVENT)
+   return 'Server stopped'
 
 # host is pointing at local machine address
 # debug is used for more detailed logs + hot swaping
