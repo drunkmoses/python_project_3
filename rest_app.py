@@ -50,7 +50,11 @@ def user(user_id):
             return {'user_id': user_id, 'user_deleted': user_id}, 200 # status code
         else:
             return {'status': 'error', 'reason': 'no such id'}, 500 # error status code
-
+        
+@app.route('/stop_server')
+def stop_server():
+   os.kill(os.getpid(), signal.CTRL_C_EVENT)
+   return 'Server stopped'
 
 @app.route('/stop_server')
 def stop_server():
