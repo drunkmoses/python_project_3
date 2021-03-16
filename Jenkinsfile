@@ -58,7 +58,7 @@ pipeline {
                 sh 'combined_testing.py'
             }
         }
-        stage('tests') {
+        stage('cleanup') {
             steps {
                 sh 'clean_environment.py'
                 }
