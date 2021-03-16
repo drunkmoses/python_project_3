@@ -26,7 +26,7 @@ pipeline {
                 script {
                     properties([pipelineTriggers([pollSCM('0,30 * * * *')])])
                 }
-                sh 'git https://github.com/drunkmoses/python_project_1.git'
+                sh 'git clone https://github.com/drunkmoses/python_project_1.git'
             }
         }
         stage('run rest app') {
@@ -48,6 +48,20 @@ pipeline {
                     } else {
                         sh 'nohup python web_app.py &'
                     }
+                }
+            }
+        }
+        stage('tests') {
+            steps {
+                sh 'backend_testing.py'
+                sh 'frontend_testing.py'
+                sh 'combined_testing.py'
+                }
+            }
+        }
+        stage('tests') {
+            steps {
+                sh 'clean_environment.py'
                 }
             }
         }
