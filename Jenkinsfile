@@ -56,14 +56,13 @@ pipeline {
                 sh 'backend_testing.py'
                 sh 'frontend_testing.py'
                 sh 'combined_testing.py'
-                }
             }
         }
         stage('tests') {
             steps {
                 sh 'clean_environment.py'
                 }
-            }
         }
     }
 }
+
