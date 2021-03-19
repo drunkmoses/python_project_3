@@ -57,14 +57,14 @@ pipeline {
         }
         stage('tests') {
             steps {
-                sh 'backend_testing.py'
-                sh 'frontend_testing.py'
-                sh 'combined_testing.py'
+                sh 'python3 backend_testing.py'
+                sh 'python3 frontend_testing.py'
+                sh 'python3 combined_testing.py'
             }
         }
         stage('cleanup') {
             steps {
-                sh 'clean_environment.py'
+                sh 'python3 clean_environment.py'
                 }
         }
     }
