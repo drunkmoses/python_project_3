@@ -19,8 +19,7 @@ pipeline {
         stage('cleanup before start') {
             steps {
                 sh 'rm -rf .git'
-                sh 'pip install flask'
-                sh 'pip install selenium'
+
             }
         }
         stage('checkout') {
@@ -33,6 +32,8 @@ pipeline {
         }
         stage('run rest app') {
             steps {
+                sh 'pip install flask'
+                sh 'pip install selenium'
                 script {
                     if (checkOs() == 'Windows') {
                         bat 'start /min python rest_app.py'
