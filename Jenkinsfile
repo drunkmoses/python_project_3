@@ -19,9 +19,8 @@ pipeline {
         stage('cleanup before start') {
             steps {
                 sh 'rm -rf .git'
-                sh 'apt-get install python3-pip'
-                sh 'pip install flask'
-                sh 'pip install selenium'
+                sh 'pip3 install flask'
+                sh 'pip3 install selenium'
             }
         }
         stage('checkout') {
