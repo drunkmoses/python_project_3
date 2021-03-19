@@ -32,8 +32,8 @@ pipeline {
         }
         stage('run rest app') {
             steps {
-                sh 'pip install flask'
-                sh 'pip install selenium'
+                sh 'pip3 install flask'
+                sh 'pip3 install selenium'
                 script {
                     if (checkOs() == 'Windows') {
                         bat 'start /min python rest_app.py'
