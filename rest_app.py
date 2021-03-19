@@ -56,11 +56,6 @@ def stop_server():
    os.kill(os.getpid(), signal.CTRL_C_EVENT)
    return 'Server stopped'
 
-@app.route('/stop_server')
-def stop_server():
-   os.kill(os.getpid(), signal.CTRL_C_EVENT)
-   return 'Server stopped'
-
 # host is pointing at local machine address
 # debug is used for more detailed logs + hot swaping
 # the desired port - feel free to change
