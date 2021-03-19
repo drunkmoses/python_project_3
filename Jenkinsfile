@@ -22,6 +22,7 @@ pipeline {
                 sh 'pip3 install flask'
                 sh 'pip3 install selenium'
                 sh 'pip3 install pymysql'
+                sh 'pip3 install requests'
 
             }
         }
