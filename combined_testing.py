@@ -5,7 +5,7 @@ import time
 
 # post test: asks user for id, and posts it with 'test' user_name to DB
 
-new_user_id = input("Enter a new user id: ")
+new_user_id = 4
 url = "http://127.0.0.1:5000/users/%s" % new_user_id
 app_url = "http://127.0.0.1:5001/users/get_user_data/%s" % new_user_id # added to allow variables in user_id during frontend testing
 try:
