@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 def webd(): # define function to shorten code
-    return webdriver.Firefox(executable_path=f"D:\Stuff\Python\geckodriver.exe")
+    return webdriver.Chrome(executable_path=f"chromedriver")
 
 fe_test = webd()
 fe_test.get("http://127.0.0.1:5001/users/get_user_data/1444")
