@@ -38,7 +38,7 @@ except:
 # switch to selenium testing
 
 def webd(): # define function to shorten code
-    return webdriver.Firefox(executable_path=f"D:\Stuff\Python\geckodriver.exe")
+    return webdriver.Chrome(executable_path=f"chromedriver")
 
 fe_test = webd()
 print(url)
