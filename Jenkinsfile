@@ -19,6 +19,8 @@ pipeline {
         stage('cleanup before start') {
             steps {
                 sh 'rm -rf .git'
+                sh 'pip install flask'
+                sh 'pip install selenium'
             }
         }
         stage('checkout') {
