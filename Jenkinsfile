@@ -16,9 +16,12 @@ def checkOs(){
 pipeline {
     agent any
     stages {
-        stage('cleanup before start') {
+        stage('cleanup and requirements before start') {
             steps {
                 sh 'rm -rf .git'
+                sh 'pip3 install flask'
+                sh 'pip3 install selenium'
+                sh 'pip3 install pymysql'
 
             }
         }
@@ -32,8 +35,6 @@ pipeline {
         }
         stage('run rest app') {
             steps {
-                sh 'pip3 install flask'
-                sh 'pip3 install selenium'
                 script {
                     if (checkOs() == 'Windows') {
                         bat 'start /min python3 rest_app.py'
