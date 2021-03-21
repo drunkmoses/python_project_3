@@ -31,7 +31,7 @@ pipeline {
                 script {
                     properties([pipelineTriggers([pollSCM('0,30 * * * *')])])
                 }
-                sh 'git clone https://github.com/drunkmoses/python_project_1.git'
+                sh 'git clone https://github.com/drunkmoses/python_project_3.git'
             }
         }
         stage('run rest app') {
@@ -45,22 +45,9 @@ pipeline {
                 }
             }
         }
-        stage('run web app') {
-            steps {
-                script {
-                    if (checkOs() == 'Windows') {
-                        bat 'start /min python3 web_app.py'
-                    } else {
-                        sh 'nohup python3 web_app.py &'
-                    }
-                }
-            }
-        }
         stage('tests') {
             steps {
                 sh 'python3 backend_testing.py'
-                sh 'python3 frontend_testing.py'
-                sh 'python3 combined_testing.py'
             }
         }
         stage('cleanup') {
