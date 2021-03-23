@@ -1,3 +1,6 @@
-FROM python:3-alpine
-ADD * /
-CMD ["python3", "./1.py"]
+FROM python:3.7-alpine
+WORKDIR /app
+COPY *.py /app
+RUN pip install requirements.txt
+EXPOSE 5000
+VOLUME /app/logs
