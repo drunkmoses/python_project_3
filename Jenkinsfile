@@ -53,7 +53,12 @@ pipeline {
         stage('cleanup') {
             steps {
                 sh 'python3 clean_environment.py'
-                }
+            }
+        }
+        stage('build docker image') {
+            steps {
+                sh 'docker build -f docker_python_test .'
+            }
         }
     }
 }
